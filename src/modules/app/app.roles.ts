@@ -21,3 +21,13 @@ roles
   .readAny("profiles")
   .updateAny("profiles")
   .deleteAny("profiles");
+
+  roles
+  .grant(AppRoles.DEFAULT)
+  .readOwn("post")
+  .updateOwn("post")
+  .deleteOwn("post")
+  .grant(AppRoles.ADMIN)
+  .readAny("posts")
+  .updateAny("posts")
+  .deleteAny("posts");

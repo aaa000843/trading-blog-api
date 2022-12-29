@@ -9,7 +9,7 @@ export const Profile = new Schema({
   email: { type: String, required: true },
   name: { type: String, required: true },
   password: { type: String, required: true },
-  avatar: { type: String, required: true },
+  avatar: { type: String },
   roles: [{ type: String }],
   date: {
     type: Date,

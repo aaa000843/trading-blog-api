@@ -7,7 +7,7 @@ import { Request } from "express";
 /**
  * App Controller
  */
-@Controller()
+@Controller('/api')
 @ApiBearerAuth()
 export class AppController {
   /**

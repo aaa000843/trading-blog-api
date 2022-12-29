@@ -107,11 +107,11 @@ export class ProfileService {
       { username },
       payload,
     );
-    if (updatedProfile.nModified !== 1) {
-      throw new BadRequestException(
-        "The profile with that username does not exist in the system. Please try another username.",
-      );
-    }
+    // if (updatedProfile.nModified !== 1) {
+    //   throw new BadRequestException(
+    //     "The profile with that username does not exist in the system. Please try another username.",
+    //   );
+    // }
     return this.getByUsername(username);
   }
 
