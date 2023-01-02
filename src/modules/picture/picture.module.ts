@@ -3,7 +3,7 @@ import { PictureService } from "./picture.service";
 import { MongooseModule } from "@nestjs/mongoose";
 import { Picture } from "./picture.model";
 import { PictureController } from "./picture.controller";
-import { ConfigModule } from "modules/config/config.module";
+import { ConfigModule } from "../config/config.module";
 
 @Module({
   imports: [

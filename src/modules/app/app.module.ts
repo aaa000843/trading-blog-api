@@ -11,8 +11,8 @@ import { ProfileModule } from "../profile/profile.module";
 import { WinstonModule } from "../winston/winston.module";
 import { AccessControlModule } from "nest-access-control";
 import { roles } from "./app.roles";
-import { PostModule } from "modules/post/post.module";
-import { PictureModule } from "modules/picture/picture.module";
+import { PostModule } from "../post/post.module";
+import { PictureModule } from "../picture/picture.module";
 
 @Module({
   imports: [

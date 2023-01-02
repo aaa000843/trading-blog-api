@@ -23,7 +23,7 @@ import { PicturePayload, PicturePropsPayload } from "./payload/picture.payload";
 import { IPicture } from "./picture.model";
 import { FileInterceptor } from "@nestjs/platform-express";
 import { ParseFile } from "./parse-file.pipe";
-import { ConfigService } from "modules/config/config.service";
+import { ConfigService } from "../config/config.service";
 
 /**
  * Picture Controller

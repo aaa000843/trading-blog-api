@@ -4,7 +4,7 @@ import rateLimiter from "express-rate-limit";
 import { AppModule } from "./modules/app/app.module";
 import { ValidationPipe } from "@nestjs/common";
 import { SwaggerModule, DocumentBuilder } from "@nestjs/swagger";
-import { ConfigService } from "modules/config/config.service";
+import { ConfigService } from "./modules/config/config.service";
 
 /**
  * The url endpoint for open api ui
