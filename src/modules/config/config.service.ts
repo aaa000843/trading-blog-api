@@ -48,6 +48,9 @@ export class ConfigService {
       WEBTOKEN_SECRET_KEY: joi.string().required(),
       WEBTOKEN_EXPIRATION_TIME: joi.number().default(1800),
       DB_URL: joi.string().regex(/^mongodb/),
+      UI_URL: joi.string().uri({
+        scheme: [/https?/],
+      })
     });
 
     /**
