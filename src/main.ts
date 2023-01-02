@@ -5,6 +5,7 @@ import { AppModule } from "./modules/app/app.module";
 import { ValidationPipe } from "@nestjs/common";
 import { SwaggerModule, DocumentBuilder } from "@nestjs/swagger";
 import { ConfigService } from "./modules/config/config.service";
+const port = process.env.PORT || 3001;
 
 /**
  * The url endpoint for open api ui
@@ -53,5 +54,5 @@ export const SWAGGER_API_CURRENT_VERSION = "1.0";
   );
   app.useGlobalPipes(new ValidationPipe());
 
-  await app.listen(9000, "0.0.0.0");
+  await app.listen(port, "0.0.0.0");
 })();
