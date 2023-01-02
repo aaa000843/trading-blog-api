@@ -1,9 +1,6 @@
 import { Model } from "mongoose";
 import { InjectModel } from "@nestjs/mongoose";
-import {
-    BadRequestException,
-  Injectable,
-} from "@nestjs/common";
+import { BadRequestException, Injectable } from "@nestjs/common";
 import { IPicture } from "./picture.model";
 import { PicturePayload } from "./payload/picture.payload";
 
@@ -36,7 +33,7 @@ export class PictureService {
    * @returns {Promise<IPicture>} queried picture data
    */
   get(id: string): Promise<IPicture> {
-    return this.pictureModel.findOne({slug: id}).exec();
+    return this.pictureModel.findOne({ slug: id }).exec();
   }
 
   /**
@@ -55,13 +52,11 @@ export class PictureService {
    * @returns {Promise<IGenericMessageBody>} whether or not the crud operation was completed
    */
   delete(id: string): Promise<IGenericMessageBody> {
-    return this.pictureModel.deleteOne({ _id: id }).then(picture => {
+    return this.pictureModel.deleteOne({ _id: id }).then((picture) => {
       if (picture.deletedCount === 1) {
         return { message: `Deleted picture from records` };
       } else {
-        throw new BadRequestException(
-            `Failed to delete a picture`,
-          );
+        throw new BadRequestException(`Failed to delete a picture`);
       }
     });
   }

@@ -22,7 +22,7 @@ roles
   .updateAny("profiles")
   .deleteAny("profiles");
 
-  roles
+roles
   .grant(AppRoles.DEFAULT)
   .readOwn("post")
   .updateOwn("post")

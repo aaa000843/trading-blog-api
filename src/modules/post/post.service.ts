@@ -31,9 +31,7 @@ export class PostService {
    * Constructor
    * @param {Model<IPost>} postModel
    */
-  constructor(
-    @InjectModel("Post") private readonly postModel: Model<IPost>,
-  ) {}
+  constructor(@InjectModel("Post") private readonly postModel: Model<IPost>) {}
 
   /**
    * Fetches all posts from database
@@ -61,7 +59,6 @@ export class PostService {
     return this.postModel.findOne({ slug }).exec();
   }
 
-
   /**
    * Create a post with RegisterPayload fields
    * @param {PostPayload} payload post payload
@@ -71,14 +68,12 @@ export class PostService {
     const slug = slugify(payload.title);
     const post = await this.getBySlug(slug);
     if (post) {
-      throw new NotAcceptableException(
-        "Post with Slug already exists",
-      );
+      throw new NotAcceptableException("Post with Slug already exists");
     }
     // this will auto assign the admin role to each created user
     const createdPost = new this.postModel({
       ...payload,
-      slug
+      slug,
     });
 
     return createdPost.save();
@@ -90,11 +85,8 @@ export class PostService {
    * @returns {Promise<IPost>} mutated post data
    */
   async edit(payload: PatchPostPayload): Promise<IPost> {
-    const {slug, ...restPayload} = payload
-    const updatedPost = await this.postModel.updateOne(
-      { slug },
-      restPayload,
-    );
+    const { slug, ...restPayload } = payload;
+    const updatedPost = await this.postModel.updateOne({ slug }, restPayload);
     return this.getBySlug(slug);
   }
 
@@ -104,7 +96,7 @@ export class PostService {
    * @returns {Promise<IGenericMessageBody>} whether or not the crud operation was completed
    */
   delete(slug: string): Promise<IGenericMessageBody> {
-    return this.postModel.deleteOne({ slug }).then(post => {
+    return this.postModel.deleteOne({ slug }).then((post) => {
       if (post.deletedCount === 1) {
         return { message: `Deleted ${slug} from records` };
       } else {

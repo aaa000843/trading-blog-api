@@ -1,6 +1,6 @@
 import { NestFactory } from "@nestjs/core";
-import headers from 'helmet';
-import rateLimiter from 'express-rate-limit';
+import headers from "helmet";
+import rateLimiter from "express-rate-limit";
 import { AppModule } from "./modules/app/app.module";
 import { ValidationPipe } from "@nestjs/common";
 import { SwaggerModule, DocumentBuilder } from "@nestjs/swagger";
@@ -28,10 +28,7 @@ export const SWAGGER_API_DESCRIPTION = "API Description";
 export const SWAGGER_API_CURRENT_VERSION = "1.0";
 
 (async () => {
-  const app = await NestFactory.create(
-    AppModule,
-    {logger: console},
-  );
+  const app = await NestFactory.create(AppModule, { logger: console });
   const options = new DocumentBuilder()
     .setTitle(SWAGGER_API_NAME)
     .setDescription(SWAGGER_API_DESCRIPTION)
@@ -41,11 +38,11 @@ export const SWAGGER_API_CURRENT_VERSION = "1.0";
   const document = SwaggerModule.createDocument(app, options);
   SwaggerModule.setup(SWAGGER_API_ROOT, app, document);
   const configService = app.get(ConfigService);
-  const clientUrl = configService.get('UI_URL')
+  const clientUrl = configService.get("UI_URL");
   app.enableCors({
     origin: [clientUrl],
     credentials: true,
-    methods: ['POST', 'PUT', 'DELETE', 'GET']
+    methods: ["POST", "PUT", "DELETE", "GET"],
   });
   app.use(headers());
   app.use(

@@ -1,7 +1,5 @@
 import { ApiProperty } from "@nestjs/swagger";
-import {
-  IsNotEmpty, Matches,
-} from "class-validator";
+import { IsNotEmpty, Matches } from "class-validator";
 
 /**
  * Patch Profile Payload Class
@@ -32,32 +30,29 @@ export class PicturePayload {
   @IsNotEmpty()
   contentType: string;
 
-    @ApiProperty({
-        required: true,
-      })
-      @IsNotEmpty()
-      image: string;
+  @ApiProperty({
+    required: true,
+  })
+  @IsNotEmpty()
+  image: string;
 
-
-    /**
+  /**
    * content type field
    */
-    @ApiProperty({
-        required: true,
-      })
-      @IsNotEmpty()
-      size: number;
- 
+  @ApiProperty({
+    required: true,
+  })
+  @IsNotEmpty()
+  size: number;
 }
 
 export class PicturePropsPayload {
-
   @ApiProperty({
     required: true,
   })
   @IsNotEmpty()
   slug: string;
-    /**
+  /**
    * content type field
    */
 }

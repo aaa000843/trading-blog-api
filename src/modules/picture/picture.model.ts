@@ -4,17 +4,17 @@ import { Schema, Document } from "mongoose";
  * Mongoose Picture Schema
  */
 export const Picture = new Schema({
-    title:{ type: String, required: true },
-    description: { type: String},
-    image: String,
-    contentType: String,
-    size: Number,
-    date: {
-        type: Date,
-        default: Date.now,
-      },
-    slug: String,
-    url: String,
+  title: { type: String, required: true },
+  description: { type: String },
+  image: String,
+  contentType: String,
+  size: Number,
+  date: {
+    type: Date,
+    default: Date.now,
+  },
+  slug: String,
+  url: String,
 });
 
 /**
@@ -43,16 +43,16 @@ export interface IPicture extends Document {
   readonly contentType: string;
   /**
    * size
-  */
-    readonly size: number;
+   */
+  readonly size: number;
   /**
    * slug
-  */
+   */
   readonly slug: string;
   /**
    * Date
    */
   readonly date: Date;
 
-  readonly url: String;
+  readonly url: string;
 }

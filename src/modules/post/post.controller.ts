@@ -107,9 +107,7 @@ export class PostController {
   // })
   @ApiResponse({ status: 200, description: "Delete Post Request Received" })
   @ApiResponse({ status: 400, description: "Delete Post Request Failed" })
-  async delete(
-    @Param("slug") slug: string,
-  ): Promise<IGenericMessageBody> {
+  async delete(@Param("slug") slug: string): Promise<IGenericMessageBody> {
     return await this.postService.delete(slug);
   }
 }

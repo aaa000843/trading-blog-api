@@ -6,7 +6,10 @@ import { PictureController } from "./picture.controller";
 import { ConfigModule } from "modules/config/config.module";
 
 @Module({
-  imports: [MongooseModule.forFeature([{ name: "Picture", schema: Picture }]), ConfigModule],
+  imports: [
+    MongooseModule.forFeature([{ name: "Picture", schema: Picture }]),
+    ConfigModule,
+  ],
   providers: [PictureService],
   exports: [PictureService],
   controllers: [PictureController],
